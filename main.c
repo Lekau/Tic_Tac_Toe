@@ -60,13 +60,7 @@ int disqualifier(char str[9], int pos)
     else
         return (0); 
 }
-/* 
-    X | O | X 
-    ----------
-    X | X | X 
-    ----------
-    X | O | X 
- */
+
 void print_grid(char str[9])
 {
     int i = 0, k = 0, h_div = 0, v_div = 0;
@@ -95,6 +89,15 @@ void print_grid(char str[9])
 
 int main(int count, char **players)
 {
+    int turns = 0;
+
+    while(turns < 9)
+    {
+        
+        turns++;
+    }
+
+
     print_grid(players[1]);
     return (0);
 }
