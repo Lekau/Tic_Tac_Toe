@@ -31,15 +31,15 @@ void draw_X_or_O(char str[9], int pos, int player)
 
 int game_over(char str[9], int turns)
 {
-    if((str[0] == str[4] && str[8]) || (str[2] == str[4] && str[6]))
+   if((str[0] == str[4] && str[8] == str[4]) || (str[2] == str[4] && str[6] == str[4]))
     {
         return (2);
     }
-    else if ((str[0] == str[4] && str[8]) || (str[2] == str[4] && str[6]) || (str[2] == str[4] && str[6]))
+    else if ((str[0] == str[3] && str[3] == str[6]) || (str[1] == str[4] && str[4] == str[7]) || (str[2] == str[5] && str[5] == str[8]))
     {
         return (2);
     } 
-    else if ((str[0] == str[4] && str[8]) || (str[2] == str[4] && str[6]) || (str[2] == str[4] && str[6]))
+    else if ((str[0] == str[1] && str[1] == str[2]) || (str[3] == str[4] && str[4] == str[5]) || (str[6] == str[7] && str[7] == str[8]))
     {
         return (2);
     }
