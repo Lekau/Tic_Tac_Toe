@@ -93,7 +93,7 @@ int main(void)
     int player1 = 0;
     int turns = 1;
     char cur_player = '1';
-    char winner[15] = "\nPlayer 1 Wins\n";
+    char winner[14] = "Player 1 Wins\n";
     char draw_check = 'Y';
     char playing_grid[9] = "Z12345678";
 
