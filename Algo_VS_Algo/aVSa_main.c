@@ -1,5 +1,7 @@
 #include <unistd.h>
-
+// number 1 and 2 will be replaced by function names. 
+#define PLAYER1 1
+#define PLAYER2 2
 void our_putchar(char k)
 {
     write(1, &k, 1);
@@ -89,8 +91,6 @@ void print_grid(char str[9])
 
 int main(void)
 {
-    int player2 = 9;
-    int player1 = 7;
     int turns = 1;
     char cur_player = '1';
     char winner[14] = "Player 1 Wins\n";
@@ -103,14 +103,14 @@ int main(void)
         {
             cur_player = '1';
 
-            if (disqualifier(playing_grid, player1) == 1)
+            if (disqualifier(playing_grid, PLAYER1) == 1)
             {
                 our_putstr("Player 1, You are disqualified \n");
                 print_grid(playing_grid);
                 return (0);
             }
 
-            draw_X_or_O(playing_grid, player1, turns);
+            draw_X_or_O(playing_grid, PLAYER1, turns);
         
             if (game_over(playing_grid, turns) == 1)
             {
@@ -127,14 +127,14 @@ int main(void)
         {
            cur_player = '2';
 
-            if (disqualifier(playing_grid, player2) == 1)
+            if (disqualifier(playing_grid, PLAYER2) == 1)
             {
                 our_putstr("Player 2, You are disqualified \n");
                 print_grid(playing_grid);
                 return (0);
             }
         
-            draw_X_or_O(playing_grid, player2, turns);
+            draw_X_or_O(playing_grid, PLAYER2, turns);
         
             if (game_over(playing_grid, turns) == 1)
             {
