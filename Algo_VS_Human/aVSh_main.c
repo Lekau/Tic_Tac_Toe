@@ -67,7 +67,7 @@ int disqualifier(char str[9], int pos)
 void print_grid(char str[9])
 {
     int i = 0, k = 0, h_div = 0, v_div = 0;
-
+    our_putchar('\n');
     while(i < 9)
     {
         k = 0;
@@ -88,12 +88,13 @@ void print_grid(char str[9])
         if (v_div++ < 2)
             our_putstr("----------\n"); 
     }
+    our_putchar('\n');
 }
 
 int main(void)
 {
-    int player2 = 0;
-    int player1 = 0;
+    int human = 0;
+    int computer = 0;
     int turns = 1;
     char cur_player = '1';
     char winner[14] = "Player 1 Wins\n";
@@ -105,17 +106,17 @@ int main(void)
         if(turns%2 != 0)
         {
             cur_player = '1';
-            our_putstr(" \n Your move player one, which position do you wanna play? :");
-            player1 = call_strategy(playing_grid);
-            if (disqualifier(playing_grid, player1) == 1)
+            our_putstr("\nComputer made a move ");
+            computer = call_strategy(playing_grid);
+            if (disqualifier(playing_grid, computer) == 1)
             {
-                our_putstr("\n Player 1, You are disqualified \n");
+                our_putstr("\nComputer, You are disqualified!!!\n");
                 print_grid(playing_grid);
                 return (0);
             }
 
-            draw_X_or_O(playing_grid, player1, turns);
-        
+            draw_X_or_O(playing_grid, computer, turns);
+            print_grid(playing_grid);
             if (game_over(playing_grid, turns) == 1)
             {
                 draw_check = 'Y';
@@ -130,17 +131,17 @@ int main(void)
         else
         {
             cur_player = '2';
-            our_putstr("\nYour move player two, which position do you wanna play? :");
-            scanf("%d", &player2);
-            if (disqualifier(playing_grid, player2) == 1)
+            our_putstr("\nEnter position Human: ");
+            scanf("%d", &human);
+            if (disqualifier(playing_grid, human) == 1)
             {
-                our_putstr(" \n Player 2, You are disqualified \n");
+                our_putstr("\nHuman, You are disqualified!!!\n");
                 print_grid(playing_grid);
                 return (0);
             }
         
-            draw_X_or_O(playing_grid, player2, turns);
-        
+            draw_X_or_O(playing_grid, human, turns);
+            print_grid(playing_grid);
             if (game_over(playing_grid, turns) == 1)
             {
                 draw_check = 'Y';
